@@ -1,0 +1,25 @@
+.button {
+    display: inline-block;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.button-container {
+    display:block;
+    text-align: center;
+}
+
+
+
+div.val {
+    width: 2em;
+    height: 2em;
+    float: left;
+    margin: .55em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightcoral;
+    cursor: pointer;
+    font-size: 3em;
+}
