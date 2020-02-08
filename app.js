@@ -5,13 +5,15 @@ $(document).ready(() => {
     $('.button-container').append('<button class="button Roll">Roll Dice</button>');
     $('.button-container').append('<button class="button Sum">Sum Dice</button>');
     $('.button-container').after('<div class="container"></div>')
+
     $('.generate').click(() => {
-        let die1 = new Die();
+        new Die();
     })
+
     $('.Sum').click(() => {
         let text_array = [];
         div_array.forEach((element) => {
-            let text = $(element).html();
+            let text = $(element).text();
             text_array.push(parseInt(text, 10))
         })
         let sum = text_array.reduce((a, b) => a + b);
@@ -28,11 +30,13 @@ class Die {
         div_array.push(this.div);
 
         this.roll();
+
         $('.Roll').click(() => this.roll());
         $(this.div).click(() => this.roll());
+
         $(this.div).dblclick(() => {
-            this.index  = div_array.indexOf(this.div);
-            console.log(div_array.splice(this.index,1));
+            this.index = div_array.indexOf(this.div);
+            div_array.splice(this.index, 1);
             $(this.div).remove();
         })
 
@@ -41,29 +45,76 @@ class Die {
 
     roll() {
         this.value = randVal(7, 1);
-        $(this.div).text(`${this.value}`)
+        $(this.div).html(`<span class="target">${this.value}</div>`)
+        backImg(this.value, this.div);
     }
 
 }
 
-
 let randVal = (Max, Min) => Math.floor(Math.random() * (Max - Min)) + Min;
 
-// let backImg = Val => {
-//     switch (Val) {
-//         case 4:
-//             $(`.${Val}`).css({
-//                 "background-image": 'url("https://cdn2.iconfinder.com/data/icons/dice-roll/100/dice_4-512.png")',
-//                 "background-size": 'cover',
-//             })
-//             break;
-//         case 5:
-//             $(`.${Val}`).css({
-//                 "background-image": 'url("https://cdn2.iconfinder.com/data/icons/dice-roll/100/dice_5-512.png")',
-//                 "background-size": 'cover',
-//             })
-//             break;
-//     }
+let backImg = (Val, div) => {
+    switch (Val) {
+        case 1:
+            d_class = $(div).attr('class').split(' ')[1];
+            if (d_class == undefined) {
+                $(div).addClass('d-1')
+            } else {
+                $(div).removeClass(d_class);
+                $(div).addClass('d-1')
+            }
+            break;
+
+        case 2:
+            d_class = $(div).attr('class').split(' ')[1];
+            if (d_class == undefined) {
+                $(div).addClass('d-2')
+            } else {
+                $(div).removeClass(d_class);
+                $(div).addClass('d-2')
+            }
+            break;
+
+        case 3:
+            d_class = $(div).attr('class').split(' ')[1];
+            if (d_class == undefined) {
+                $(div).addClass('d-3')
+            } else {
+                $(div).removeClass(d_class);
+                $(div).addClass('d-3')
+            }
+            break;
+
+        case 4:
+            d_class = $(div).attr('class').split(' ')[1];
+            if (d_class == undefined) {
+                $(div).addClass('d-4')
+            } else {
+                $(div).removeClass(d_class);
+                $(div).addClass('d-4')
+            }
+            break;
+
+        case 5:
+            d_class = $(div).attr('class').split(' ')[1];
+            if (d_class == undefined) {
+                $(div).addClass('d-5')
+            } else {
+                $(div).removeClass(d_class);
+                $(div).addClass('d-5')
+            }
+            break;
+
+        case 6:
+            d_class = $(div).attr('class').split(' ')[1];
+            if (d_class == undefined) {
+                $(div).addClass('d-6')
+            } else {
+                $(div).removeClass(d_class);
+                $(div).addClass('d-6')
+            }
+            break;
+    }
 
 
-// }
+}
