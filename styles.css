@@ -2,6 +2,9 @@
     display: inline-block;
     font-size: 1em;
     cursor: pointer;
+    margin: 1em;
+    border: 1em solid cyan;
+    border-radius: 2em;
 }
 
 .button-container {
@@ -23,12 +26,13 @@ div.val {
     font-size: 3em;
 }
 
-.target{
-    display: inline-block;
+div.val:hover {
+    background-color: #FEFF9E;
+    border-radius: .5em;
 }
 
-div.val:hover span{
-    display: inline-block;
+.target{
+    display: none;
 }
 
 .d-1{
@@ -60,3 +64,10 @@ div.val:hover span{
     background-image: url("https://cdn2.iconfinder.com/data/icons/dice-roll/100/dice_6-512.png");
     background-size: cover;
 }
+
+.container{
+    display:block;
+    width: 75vw;
+    height: 75vh
+}
+

@@ -4,6 +4,7 @@ $(document).ready(() => {
     $('.button-container').append('<button class="button generate">Generate Die</button>');
     $('.button-container').append('<button class="button Roll">Roll Dice</button>');
     $('.button-container').append('<button class="button Sum">Sum Dice</button>');
+    $('.button-container').append('<button class="button show">Show Die Values</button>')
     $('.button-container').after('<div class="container"></div>')
 
     $('.generate').click(() => {
@@ -19,6 +20,11 @@ $(document).ready(() => {
         let sum = text_array.reduce((a, b) => a + b);
         alert(`The sum of the die is ${sum}`);
     })
+
+    
+    $('.show').mousedown(() => $('.target').show());
+    $('.show').mouseup(() => $('.target').hide());
+
 })
 
 let div_array = [];
@@ -32,6 +38,7 @@ class Die {
         this.roll();
 
         $('.Roll').click(() => this.roll());
+
         $(this.div).click(() => this.roll());
 
         $(this.div).dblclick(() => {
@@ -115,6 +122,4 @@ let backImg = (Val, div) => {
             }
             break;
     }
-
-
 }
